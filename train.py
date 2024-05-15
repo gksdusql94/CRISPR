@@ -300,37 +300,43 @@ optimizer=torch.optim.AdamW(params=model.parameters(),lr=LR)
 
 #%%
 # p5 test
-def test_acc(test_loader,model,DEVICE):
-    total_mse=0
-    count=0
-    total_loss=0
-    count1=0
-    criterion_mse=nn.MSELoss()
+ef test_acc(test_loader, model, DEVICE):
+    total_mse = 0
+    pearson_corr = []
+    spearman_corr = []
+    count = 0
     with torch.no_grad():
-        for i, data in enumerate(test_loader, 0):
-                x, y_true = data
-                x=x.to(DEVICE)
-                y_true=y_true.to(DEVICE)
-                y_true = y_true.unsqueeze(1)
-                y_true = y_true.float()
-                y_hat=model(x)
-                loss=criterion_mse(y_hat,y_true)
-                total_loss+=loss.item()
-                count1+=1
-                mse = ((y_hat - y_true) ** 2).mean().item()  # Compute the Mean Squared Error for this batch
-                total_mse += mse * len(x)  # Accumulate the total MSE, weighted by batch size
-                count += len(x)
+        for data in test_loader:
+            x, y_true = data
+            x = x.to(DEVICE)
+            y_true = y_true.to(DEVICE)
+            y_hat = model(x).squeeze()
+
+            # y_hat을 1차원 배열로 변환
+            if y_hat.dim() > 1:
+                y_hat = y_hat.squeeze()
+            if y_true.dim() > 1:
+                y_true = y_true.squeeze()
+
+            mse = ((y_hat - y_true) ** 2).mean().item()
+            total_mse += mse * len(x)
+            count += len(x)
+
+            try:
+                if len(y_hat) == len(y_true): 
+                    pearson_corr.append(pearsonr(y_hat.cpu().numpy(), y_true.cpu().numpy())[0])
+                    spearman_corr.append(spearmanr(y_hat.cpu().numpy(), y_true.cpu().numpy())[0])
+            except Exception as e:
+                print(f"Error calculating correlations: {e}")
 
     average_mse = total_mse / count
-    # print(f"Test MSE: {average_mse}")
-    average_mse=round(average_mse,3)
-    mse1=total_loss/count1
-    mse1=round(mse1,3)
-
-    return average_mse,mse1
+    average_pearson = np.mean(pearson_corr) if pearson_corr else 0
+    average_spearman = np.mean(spearman_corr) if spearman_corr else 0
+    return average_mse, average_pearson, average_spearman
 #%%
 average_mse,mse1=test_acc(test_loader,model,DEVICE)
 mse1
+
 #%%
 for i, data in enumerate(train_loader, 0):
     x, y_true = data
