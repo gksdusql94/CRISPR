@@ -1,4 +1,4 @@
-# Machine Learning CRISPR Team (Biotech)
+# Machine Learning CRISPR
 **Enhancing CRISPR Edit Efficiency Prediction: ML Approach to Prime Editing**
 
 ## Team Roles and Contributions
