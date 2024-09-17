@@ -1,4 +1,4 @@
-# Machine Learning Final Project Proposal: CRISPR Team (Biotech)
+# Machine Learning CRISPR Team (Biotech)
 **Enhancing CRISPR Edit Efficiency Prediction: ML Approach to Prime Editing**
 
 ## Team Roles and Contributions
@@ -16,7 +16,7 @@
 
 This project aims to develop an advanced machine learning model to predict the efficiency of CRISPR DNA editing, with a focus on Prime Editor technology. CRISPR enables precise DNA edits and has significant implications for gene therapy. We will explore transformer-based architectures and Bayesian optimization to enhance the predictive performance over existing CNN and GRU models. The dataset includes over 300,000 data points with features such as DNA target sequences, RNA guides, CRISPR efficiency scores, GC content, and melting points.
 
-## CSc 740 Related Topics
+## ML Related Topics
 
 - Application of transformer architectures for biological sequence data analysis.
 - Utilization of Bayesian optimization for efficient hyperparameter tuning.
