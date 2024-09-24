@@ -33,11 +33,11 @@ The dataset includes DNA sequences, RNA guide sequences, and observed CRISPR eff
 
 ## Project Timeline / Evaluation Plan
 
-- **March 6 - March 20**: Literature review and finalization of data pre-processing techniques.
-- **March 21 - April 2**: Development and initial testing of the transformer-based model.
-- **April 3 - April 16**: Implementation of Bayesian optimization for hyperparameter tuning.
-- **April 17 - April 30**: Comprehensive model evaluation and visualization development.
-- **May 1 - May 14**: Final adjustments and presentation preparation.
+-  Literature review and finalization of data pre-processing techniques.
+-  Development and initial testing of the transformer-based model.
+-  Implementation of Bayesian optimization for hyperparameter tuning.
+-  Comprehensive model evaluation and visualization development.
+-  Final adjustments and presentation preparation.
 
 ## Final Exam Demo and Deliverables
 
