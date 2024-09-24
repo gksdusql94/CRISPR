@@ -51,5 +51,11 @@ The dataset includes DNA sequences, RNA guide sequences, and observed CRISPR eff
 
 This project pushes the boundaries of CRISPR-Cas9 research by enhancing the ability to predict prime editing efficiency. With transformer-based architectures and improved data preprocessing, we aim to improve experimental efficiency and accuracy for genetic editing, empowering biologists to refine CRISPR experiments.
 
+Developed ML model using transformer architectures to predict DNA CRISPR Prime Editing efficiency. 
+-	Applied one-hot encoding and embedding layers to efficiently capture key biological sequence features like GC content and melting points for better DNA/RNA structure representation.
+-	Used Optuna for Bayesian optimization, tuning batch size, learning rate, and node counts. Despite memory limits, achieved MSE losses of 5.3 and 6.2, showing room for further improvement.
+-	Led evaluation and visualization, using metrics such as sensitivity, precision, F1-score, and AUC-ROC, and developed clear visualizations to represent the model’s performance.
+
+
 ## References
 - Prediction of efficiencies for diverse prime editing systems in multiple cell types, *Cell*. 2023 May
