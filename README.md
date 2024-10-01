@@ -43,5 +43,5 @@ Developed ML model using transformer architectures to predict DNA CRISPR Prime E
 -	Led evaluation and visualization, using metrics such as sensitivity, precision, F1-score, and AUC-ROC, and developed clear visualizations to represent the model’s performance.
 
 
-## References
+## 🔗 References
 - Prediction of efficiencies for diverse prime editing systems in multiple cell types, *Cell*. 2023 May
